@@ -1,26 +1,29 @@
-# compiled output
-/dist
-/node_modules
-/build
-
-# Logs
-logs
-*.log
-npm-debug.log*
+# Dependencies
+node_modules/
 pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-# OS
+# Compiled output
+/dist
+/dist-ssr
+/build
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS-specific files
 .DS_Store
 
-# Tests
+# Test coverage
 /coverage
 /.nyc_output
 
 # IDEs and editors
-/.idea
+.idea/
 .project
 .classpath
 .c9/
@@ -28,8 +31,8 @@ lerna-debug.log*
 .settings/
 *.sublime-workspace
 
-# IDE - VSCode
-.vscode/*
+# VSCode settings (keep useful ones)
+.vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
@@ -37,20 +40,27 @@ lerna-debug.log*
 
 # dotenv environment variable files
 .env
+.env.local
 .env.development.local
 .env.test.local
 .env.production.local
-.env.local
 
-# temp directory
-.temp
-.tmp
+# Temporary files
+.temp/
+.tmp/
 
 # Runtime data
-pids
+pids/
 *.pid
 *.seed
 *.pid.lock
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# Miscellaneous
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
