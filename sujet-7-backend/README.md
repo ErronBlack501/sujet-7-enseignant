@@ -24,15 +24,54 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This is a NestJS backend application for managing teacher records. It provides a RESTful API for creating, reading, updating, and deleting teacher information.
 
-## Project setup
+## Features
+
+- CRUD operations for teacher management
+- TypeORM integration with PostgreSQL
+- Database migrations
+- Environment configuration
+- Input validation and error handling
+
+## Prerequisites
+
+- Node.js (v18 or later)
+- pnpm package manager
+- PostgreSQL database
+
+## Installation
 
 ```bash
 $ pnpm install
 ```
 
-## Compile and run the project
+## Configuration
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+DB_TYPE=postgres
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+DB_NAME=your_database
+```
+
+## Database Setup
+
+1. Create the database:
+```bash
+$ createdb your_database
+```
+
+2. Run migrations:
+```bash
+$ pnpm run migration:run
+```
+
+## Running the app
 
 ```bash
 # development
@@ -45,7 +84,28 @@ $ pnpm run start:dev
 $ pnpm run start:prod
 ```
 
-## Run tests
+## Database Migrations
+
+```bash
+# generate a new migration
+$ pnpm run migration:generate src/migrations/MigrationName
+
+# run pending migrations
+$ pnpm run migration:run
+
+# revert last migration
+$ pnpm run migration:revert
+```
+
+## API Endpoints
+
+- `GET /teachers` - Get all teachers
+- `GET /teachers/:id` - Get a specific teacher
+- `POST /teachers` - Create a new teacher
+- `PATCH /teachers/:id` - Update a teacher
+- `DELETE /teachers/:id` - Delete a teacher
+
+## Testing
 
 ```bash
 # unit tests
@@ -58,42 +118,6 @@ $ pnpm run test:e2e
 $ pnpm run test:cov
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ pnpm install -g mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
 ## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+This project is [MIT licensed](LICENSE).

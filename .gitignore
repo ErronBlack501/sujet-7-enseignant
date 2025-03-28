@@ -1,28 +1,70 @@
-# Dependencies
+# ===============================================
+# Dependencies and installation files
+# ===============================================
 node_modules/
 pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+npm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
-# Compiled output
+# ===============================================
+# Build outputs and compilation artifacts
+# ===============================================
 /dist
 /dist-ssr
 /build
+.temp/
+.tmp/
+*.tsbuildinfo
 
-# Logs
+# ===============================================
+# Environment configuration files
+# ===============================================
+.env
+.env.*
+!.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ===============================================
+# Logs and reports
+# ===============================================
 logs/
 *.log
-npm-debug.log*
+.nyc_output
+/report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
-# OS-specific files
-.DS_Store
-
-# Test coverage
+# ===============================================
+# Test coverage and testing artifacts
+# ===============================================
 /coverage
-/.nyc_output
+/cypress/videos/
+/cypress/screenshots/
+/junit.xml
 
-# IDEs and editors
+# ===============================================
+# OS-specific files
+# ===============================================
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.pid
+*.seed
+*.pid.lock
+pids/
+
+# ===============================================
+# IDE and editor configurations
+# ===============================================
 .idea/
 .project
 .classpath
@@ -31,36 +73,28 @@ npm-debug.log*
 .settings/
 *.sublime-workspace
 
-# VSCode settings (keep useful ones)
-.vscode/
+# VSCode configuration (keep useful files)
+.vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# dotenv environment variable files
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# ===============================================
+# Cache and temporary files
+# ===============================================
+.cache/
+.turbo
+.next/
+.nuxt/
+.vite/
+*.tmp
 
-# Temporary files
-.temp/
-.tmp/
-
-# Runtime data
-pids/
-*.pid
-*.seed
-*.pid.lock
-
-# Diagnostic reports (https://nodejs.org/api/report.html)
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
-
-# Miscellaneous
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# ===============================================
+# Miscellaneous files
+# ===============================================
+*.local
+*.bak
+*.backup
+*.swp
+*~
