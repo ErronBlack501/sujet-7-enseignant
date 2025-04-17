@@ -12,21 +12,26 @@
       <p>Chargement des enseignants...</p>
     </div>
 
-    <TeacherList 
+    <TeacherList
       v-else
-      :teachers="teachers" 
-      @edit="editTeacher" 
-      @delete="confirmDelete" 
+      :teachers="teachers"
+      @edit="editTeacher"
+      @delete="confirmDelete"
     />
 
-    <TeacherForm
-      v-if="isFormVisible"
-      :teacher="teacherToEdit"
-      :is-editing="isEditing"
-      :is-saving="isSaving"
-      @submit="saveTeacher"
-      @close="closeForm"
+    <ChartPayment
+      :teachers="teachers"
     />
+
+    <div v-if="isFormVisible" class="modal-overlay">
+        <TeacherForm
+          :teacher="teacherToEdit"
+          :is-editing="isEditing"
+          :is-saving="isSaving"
+          @submit="saveTeacher"
+          @close="closeForm"
+        />
+    </div>
 
     <DeleteConfirmationModal
       v-if="showDeleteModal"
@@ -49,10 +54,12 @@
 import { ref, onMounted } from 'vue';
 import TeacherList from '@/components/TeacherList.vue';
 import TeacherForm from '@/components/TeacherForm.vue';
+import ChartPayment from '@/components/ChartPayment.vue';
 import DeleteConfirmationModal from '@/components/DeleteConfirmationModal.vue';
 import Alert from '@/components/Alert.vue';
 import { teacherService } from '@/services/teacherService';
 import type { Teacher, TeacherFormData } from '@/types/teacher';
+
 
 const teachers = ref<Teacher[]>([]);
 const isFormVisible = ref(false);
@@ -129,7 +136,7 @@ const saveTeacher = async (formData: TeacherFormData) => {
     let errorMsg = 'Une erreur est survenue';
     if (error instanceof Error) {
       errorMsg = error.message;
-    } else if (typeof error === 'object' && error !== null && 'response' in error && 
+    } else if (typeof error === 'object' && error !== null && 'response' in error &&
                error.response && typeof error.response === 'object' && 'data' in error.response &&
                error.response.data && typeof error.response.data === 'object' && 'message' in error.response.data) {
       errorMsg = (error.response.data as { message: string }).message;
@@ -152,7 +159,7 @@ const cancelDelete = () => {
 
 const deleteTeacher = async () => {
   if (!teacherToDelete.value?.id) return;
-  
+
   try {
     isDeleting.value = true;
     await teacherService.delete(teacherToDelete.value.id);
@@ -164,7 +171,7 @@ const deleteTeacher = async () => {
     let errorMsg = 'Erreur lors de la suppression de l\'enseignant';
     if (error instanceof Error) {
       errorMsg = error.message;
-    } else if (typeof error === 'object' && error !== null && 'response' in error && 
+    } else if (typeof error === 'object' && error !== null && 'response' in error &&
                error.response && typeof error.response === 'object' && 'data' in error.response &&
                error.response.data && typeof error.response.data === 'object' && 'message' in error.response.data) {
       errorMsg = (error.response.data as { message: string }).message;
@@ -241,5 +248,17 @@ const showMessage = (msg: string, isError = false) => {
 .btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 </style>

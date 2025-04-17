@@ -29,12 +29,12 @@
               </button>
             </td>
           </tr>
-          
+
           <tr v-if="teachers.length === 0">
             <td colspan="6" class="no-data">Aucun enseignant trouvé</td>
           </tr>
         </tbody>
-        
+
         <tfoot v-if="teachers.length > 0">
           <tr class="summary-row">
             <td colspan="4"><strong>Totaux Prestation</strong></td>
@@ -53,6 +53,7 @@
       </table>
     </div>
   </div>
+
 </template>
 
 <script setup lang="ts">
