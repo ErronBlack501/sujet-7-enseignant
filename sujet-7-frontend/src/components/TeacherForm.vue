@@ -9,32 +9,32 @@
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
         <label for="matricule">Matricule</label>
-        <input 
-          type="text" 
-          id="matricule" 
-          v-model="formData.matricule" 
-          placeholder="Entrez le matricule" 
+        <input
+          type="text"
+          id="matricule"
+          v-model="formData.matricule"
+          placeholder="Entrez le matricule"
           :readonly="isEditing"
           required
         >
       </div>
       <div class="form-group">
         <label for="nom">Nom complet</label>
-        <input 
-          type="text" 
-          id="nom" 
-          v-model="formData.nom" 
-          placeholder="Entrez le nom complet" 
+        <input
+          type="text"
+          id="nom"
+          v-model="formData.nom"
+          placeholder="Entrez le nom complet"
           required
         >
       </div>
       <div class="form-group">
         <label for="tauxHoraire">Taux horaire</label>
-        <input 
-          type="number" 
-          id="tauxHoraire" 
-          v-model.number="formData.tauxHoraire" 
-          placeholder="Entrez le taux horaire" 
+        <input
+          type="number"
+          id="tauxHoraire"
+          v-model.number="formData.tauxHoraire"
+          placeholder="Entrez le taux horaire"
           min="0"
           step="0.01"
           required
@@ -42,11 +42,11 @@
       </div>
       <div class="form-group">
         <label for="nombreHeures">Nombre d'heures</label>
-        <input 
-          type="number" 
-          id="nombreHeures" 
-          v-model.number="formData.nombreHeures" 
-          placeholder="Entrez le nombre d'heures" 
+        <input
+          type="number"
+          id="nombreHeures"
+          v-model.number="formData.nombreHeures"
+          placeholder="Entrez le nombre d'heures"
           min="0"
           required
         >
@@ -115,7 +115,8 @@ const resetForm = () => {
   background: white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 30em;
 }
 
 .form-header {
