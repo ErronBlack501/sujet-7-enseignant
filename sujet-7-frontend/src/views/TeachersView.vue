@@ -123,11 +123,12 @@ const saveTeacher = async (formData: TeacherFormData) => {
       const index = teachers.value.findIndex(t => t.id === teacherToEdit.value?.id);
       if (index !== -1) {
         teachers.value[index] = updatedTeacher;
+        teachers.value = [...teachers.value]; // Force Vue reactivity for chart update
       }
       showMessage('Enseignant modifié avec succès');
     } else {
       const newTeacher = await teacherService.create(processedData as Teacher);
-      teachers.value.push(newTeacher);
+      teachers.value = [...teachers.value, newTeacher]; // Force Vue reactivity for chart update
       showMessage('Enseignant ajouté avec succès');
     }
     closeForm();
