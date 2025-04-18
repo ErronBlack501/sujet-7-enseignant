@@ -1,19 +1,56 @@
 # 🎓 Teacher Management Application
 
-<p align="center">
-  <a href="https://nestjs.com/" target="_blank">
-    <img src="https://nestjs.com/img/logo-small.svg" width="120" alt="NestJS Logo" />
-  </a>
-</p>
+A full-stack web application to manage teachers, their details, and payment statistics. Built with a modern Node.js backend (NestJS) and a Vue.js frontend.
 
-<p align="center">
-  A progressive <a href="https://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.
-</p>
+---
 
-<p align="center">
-  <a href="https://www.npmjs.com/~nestjscore" target="_blank">
-    <img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" />
-  </a>
+## Features
+- Add, edit, and delete teachers
+- View a list of all teachers
+- Visualize payment statistics (total, max, min) with a dynamic chart
+- Responsive and user-friendly interface
+
+## Tech Stack
+- **Backend:** [NestJS](https://nestjs.com/) (Node.js, TypeScript)
+- **Frontend:** [Vue.js 3](https://vuejs.org/) (TypeScript, Composition API)
+- **Charting:** [Chart.js](https://www.chartjs.org/)
+
+## Getting Started
+
+### Backend
+1. Go to the backend directory:
+   ```bash
+   cd sujet-7-backend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the backend server:
+   ```bash
+   npm run start:dev
+   ```
+
+### Frontend
+1. Go to the frontend directory:
+   ```bash
+   cd sujet-7-frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the frontend server:
+   ```bash
+   npm run dev
+   ```
+
+The frontend will typically be available at [http://localhost:5173](http://localhost:5173) and the backend at [http://localhost:3000](http://localhost:3000).
+
+## License
+
+This project is for educational purposes.
+
   <a href="https://www.npmjs.com/~nestjscore" target="_blank">
     <img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="License" />
   </a>
@@ -67,7 +104,7 @@ pnpm install
 
 ### ⚙️ Configuration
 
-Créez un fichier `.env` à la racine du projet :
+Create a `.env` file at the root of the project:
 
 ```env
 DB_TYPE=postgres
@@ -78,40 +115,40 @@ DB_PASSWORD=your_password
 DB_NAME=your_database
 ```
 
-### 🛠 Base de données
+### 🛠 Database
 
-1. Créer la base de données :
+1. Create the database:
 
 ```bash
 createdb your_database
 ```
 
-2. Exécuter les migrations :
+2. Run the migrations:
 
 ```bash
 pnpm run migration:run
 ```
 
-### 🚀 Lancer l’application
+### 🚀 Launch the Application
 
 ```bash
-# En développement
+# Development mode
 pnpm run start:dev
 
-# En production
+# Production mode
 pnpm run start:prod
 ```
 
 ### 🔄 Migrations
 
 ```bash
-# Générer une migration
-pnpm run migration:generate src/migrations/NomMigration
+# Generate a migration
+pnpm run migration:generate src/migrations/MigrationName
 
-# Appliquer les migrations
+# Apply migrations
 pnpm run migration:run
 
-# Annuler la dernière migration
+# Revert the last migration
 pnpm run migration:revert
 ```
 
@@ -119,22 +156,22 @@ pnpm run migration:revert
 
 ## 🔌 API Endpoints
 
-| Méthode | Endpoint        | Description              |
-|---------|------------------|--------------------------|
-| GET     | `/teachers`      | Liste des enseignants    |
-| GET     | `/teachers/:id`  | Détails d’un enseignant  |
-| POST    | `/teachers`      | Créer un enseignant      |
-| PATCH   | `/teachers/:id`  | Modifier un enseignant   |
-| DELETE  | `/teachers/:id`  | Supprimer un enseignant  |
+| Method | Endpoint          | Description              |
+|--------|-------------------|--------------------------|
+| GET    | `/teachers`       | List all teachers        |
+| GET    | `/teachers/:id`   | Get teacher details      |
+| POST   | `/teachers`       | Create a teacher         |
+| PATCH   | `/teachers/:id`   | Update a teacher         |
+| DELETE  | `/teachers/:id`  | Delete a teacher         |
 
 ---
 
 ## ✅ Tests
 
 ```bash
-pnpm run test       # Tests unitaires
-pnpm run test:e2e   # Tests end-to-end
-pnpm run test:cov   # Couverture des tests
+pnpm run test       # Unit tests
+pnpm run test:e2e   # End-to-end tests
+pnpm run test:cov   # Test coverage
 ```
 
 ---
